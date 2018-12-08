@@ -1,0 +1,21 @@
+-- Create keyspace
+CREATE KEYSPACE ice7 WITH REPLICATION = { 'class' : 'SimpleStrategy', 'replication_factor' : 1 };
+USE ice7;
+CREATE TABLE books (
+	book_id int,
+	category text,
+	title text,
+	number_pages int,
+	publisher text,
+	pub_date timestamp,
+	author text,
+	PRIMARY KEY(publisher, pub_date,book_id)
+);
+
+COPY books (book_id, category, title, author, publisher, pub_date, number_pages) FROM 'book_entries.csv' WITH HEADER=True AND DELIMITER='|';
+
+
+SELECT book_id,title from books;
+SELECT book_id,title from books where category= 'mystery' ALLOW FILTERING;
+SELECT book_id,title from books where pub_date<= '2010-10-10' ALLOW FILTERING;
+SELECT book_id,title from books where category= 'mystery' and publisher='Penguin' ALLOW FILTERING;
