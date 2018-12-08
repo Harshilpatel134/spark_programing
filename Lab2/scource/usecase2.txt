@@ -1,0 +1,13 @@
+name:Captain*
+name:Captain* AND eye\ color:blue
+name:Captain* AND height:[0 TO 200]
+weight:[0 TO 200]
+Captian~2
+eyecolor:blue AND skincolor:blue
+height:[0 TO *] AND weight:[0 TO *]
+race:God/Eternal AND NOT alignment:bad
+alignment:good AND hair\ color:"No Hair" AND gender:Female
+alignment:good AND hair\ color:"No Hair" AND height:[200 TO 300]
+
+
+
